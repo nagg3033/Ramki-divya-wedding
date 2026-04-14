@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Nagu ❤️ Divya Wedding</title>
+<style>
+body {
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background:#0f0f0f;
+  color:#d4af37;
+  text-align:center;
+}
+.section {
+  padding:60px 20px;
+}
+h1 {
+  font-size:40px;
+}
+.countdown {
+  font-size:30px;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="section">
+  <h1>Nagu ❤️ Divya</h1>
+  <p>Are getting married</p>
+  <p>May 7, 2026 | 10:30 PM</p>
+</div>
+
+<div class="section">
+  <h2>Countdown</h2>
+  <div id="timer" class="countdown"></div>
+</div>
+
+<div class="section">
+  <h2>Our Story</h2>
+  <p>It all started with a simple hi...  
+  Now it's forever ❤️</p>
+</div>
+
+<div class="section">
+  <h2>Venue</h2>
+  <p>Ramachandrapuram<br>
+  East Godavari, Andhra Pradesh - 533255</p>
+</div>
+
+<script>
+var countDownDate = new Date("May 7, 2026 22:30:00").getTime();
+
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  var minutes = Math.floor((distance / 1000 / 60) % 60);
+  var seconds = Math.floor((distance / 1000) % 60);
+
+  document.getElementById("timer").innerHTML =
+  days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+}, 1000);
+</script>
+
+</body>
+</html>
