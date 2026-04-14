@@ -1,69 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Nagu ❤️ Divya Wedding</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
 <style>
 body {
-  margin:0;
-  font-family: 'Segoe UI', sans-serif;
-  background:#0f0f0f;
-  color:#d4af37;
-  text-align:center;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
-.section {
-  padding:60px 20px;
+
+section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s;
 }
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero {
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  color: white;
+}
+
+.story {
+  background: #fff;
+}
+
+.gallery {
+  background: #f5f5f5;
+}
+
+.events {
+  background: #ffe0e0;
+}
+
 h1 {
-  font-size:40px;
+  font-size: 3rem;
 }
-.countdown {
-  font-size:30px;
-  margin-top:20px;
+
+img {
+  width: 200px;
+  margin: 10px;
+  border-radius: 10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="section">
-  <h1>Nagu ❤️ Divya</h1>
-  <p>Are getting married</p>
-  <p>May 7, 2026 | 10:30 PM</p>
-</div>
+<!-- Background Music -->
+<audio id="bg-music" autoplay loop>
+  <source src="your-music.mp3" type="audio/mp3">
+</audio>
 
-<div class="section">
-  <h2>Countdown</h2>
-  <div id="timer" class="countdown"></div>
-</div>
+<section class="hero">
+  <h1>Rahul ❤️ Sneha</h1>
+  <p>We are getting married!</p>
+</section>
 
-<div class="section">
-  <h2>Our Story</h2>
-  <p>It all started with a simple hi...  
-  Now it's forever ❤️</p>
-</div>
+<section class="story">
+  <h1>Our Story</h1>
+  <p>How we met... 😄</p>
+</section>
 
-<div class="section">
-  <h2>Venue</h2>
-  <p>Ramachandrapuram<br>
-  East Godavari, Andhra Pradesh - 533255</p>
-</div>
+<section class="gallery">
+  <h1>Gallery</h1>
+  <img src="img1.jpg">
+  <img src="img2.jpg">
+</section>
+
+<section class="events">
+  <h1>Wedding Events</h1>
+  <p>Date: 20 Dec 2026</p>
+</section>
 
 <script>
-var countDownDate = new Date("May 7, 2026 22:30:00").getTime();
+const sections = document.querySelectorAll("section");
 
-var x = setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-  var minutes = Math.floor((distance / 1000 / 60) % 60);
-  var seconds = Math.floor((distance / 1000) % 60);
-
-  document.getElementById("timer").innerHTML =
-  days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
-}, 1000);
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      sec.classList.add("show");
+    }
+  });
+});
 </script>
 
 </body>
